@@ -70,9 +70,8 @@ public class Ejercicio2_psp {
                             MapaNotas.put(TextoSplit[0], new ArrayList<>());
                         }
                         MapaNotas.get(TextoSplit[0]).add(Integer.parseInt(TextoSplit[1]));
-
+                        
                     }
-                    
                     
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
@@ -82,6 +81,14 @@ public class Ejercicio2_psp {
             
             
         }
+        
+        for (Map.Entry<String, ArrayList<Integer>> entry : MapaNotas.entrySet()) {
+            String key = entry.getKey();
+            ArrayList<Integer> value = entry.getValue();
+            int mediaAsignatura = media(value);
+            System.out.println("media de: " + key + " " + mediaAsignatura);
+            
+        }
 
     }
 
@@ -89,10 +96,10 @@ public class Ejercicio2_psp {
         File ruta = new File("D:\\Users\\jaime.culjim\\Documents\\NetBeansProjects\\Ejercicio2_psp\\Alumnos");
         File[] alumnos = ruta.listFiles();
 
-//        for (File alumno : alumnos) {
-//            System.out.println(alumno.getAbsolutePath());
-//            System.out.println(HacerMediaAlumno(alumno));
-//        }
+       for (File alumno : alumnos) {
+            System.out.println(alumno.getAbsolutePath());
+            System.out.println(HacerMediaAlumno(alumno));
+        }
 
         HacerMediaAsignaturas(ruta);
 
